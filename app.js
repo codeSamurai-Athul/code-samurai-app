@@ -93,6 +93,18 @@ app.get('/', function (request, response) {
     response.render('index', {message: null});
 });
 
+app.get('/like', function (request, response) {
+   var book = request.query.book;
+    var items = likeAndSort('bookname',book);
+      response.render('listpage', {items: items});
+});
+
+app.get('/delete', function (request, response) {
+    var book = request.query.book;
+    var items = deleteAndSort('bookname',book);
+      response.render('listpage', {items: items});
+});
+
 
 // when the link Add New Item is clicked - links or <a> tags always send "get" not "post"
 app.get('/additem', function (request, response) {

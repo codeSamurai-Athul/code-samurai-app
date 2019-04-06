@@ -10,8 +10,8 @@
 
     <table class="highlight">
         <tr>
-            <th>book</th><th>authour</th><th>price</th><th>link</th>
-            <th>AddedBy</th>
+            <th>book</th><th>authour</th><th>price</th>
+            <th>AddedBy</th> <th>Likes</th>
         </tr>
 
         <% items.forEach(function(item){  %>
@@ -20,8 +20,12 @@
 <td><a href="<%= item.url%>" target="opensim"><%= item.bookname %></a></td>
     <td><%= item.authour %></td>
     <td><%= item.price %></td>
-    <td><%= item.link%></td>
     <td><%= item.addedBy%></td>
+     <td><%= item.likes%></td>
+    <td>
+        <a href="/like?book=<%= item.bookname %>"><i class="material-icons">favorite</i></a>
+        <a href="/delete?book=<%= item.bookname %>"><i class="material-icons">delete</i></a>
+    </td>
 
 </tr>
         <% }) %>
